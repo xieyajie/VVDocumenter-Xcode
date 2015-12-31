@@ -28,6 +28,8 @@
 
 @interface VVDocumenter : NSObject
 -(instancetype) initWithCode:(NSString *)code;
+- (instancetype) initHeader;
+
 -(NSString *) baseIndentation;
 -(NSString *) document;
 @end

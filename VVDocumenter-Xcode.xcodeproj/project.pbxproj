@@ -70,6 +70,7 @@
 		D1C6124819891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */; };
 		D1C6124919891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */; };
 		D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
+		EBEEC8B21C350CC9003DD98C /* DXHeaderCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEEC8B11C350CC9003DD98C /* DXHeaderCommenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -145,6 +146,8 @@
 		D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSwiftEnumCommenter.m; sourceTree = "<group>"; };
 		D1D66CA617A2AEF000E62F99 /* VVKeyboardEventSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVKeyboardEventSender.h; sourceTree = "<group>"; };
 		D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVKeyboardEventSender.m; sourceTree = "<group>"; };
+		EBEEC8B01C350CC9003DD98C /* DXHeaderCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXHeaderCommenter.h; sourceTree = "<group>"; };
+		EBEEC8B11C350CC9003DD98C /* DXHeaderCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXHeaderCommenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +312,8 @@
 				D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */,
 				4B50A26E1B315CF3008A4400 /* VVSwiftExtensionCommenter.h */,
 				4B50A26F1B315CF3008A4400 /* VVSwiftExtensionCommenter.m */,
+				EBEEC8B01C350CC9003DD98C /* DXHeaderCommenter.h */,
+				EBEEC8B11C350CC9003DD98C /* DXHeaderCommenter.m */,
 			);
 			path = Commenter;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */,
 				D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
 				D1737637198A4C8A00FE2355 /* NSString+VVTextGetter.m in Sources */,
+				EBEEC8B21C350CC9003DD98C /* DXHeaderCommenter.m in Sources */,
 				C4052CFA1B3BB10700ED0CF0 /* VVProject.m in Sources */,
 				D1C6124819891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */,
 				D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */,

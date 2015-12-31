@@ -33,6 +33,7 @@
 @property (nonatomic, copy) NSString *code;
 @property (nonatomic, assign) BOOL isEnum;
 @property (nonatomic, assign) BOOL isSwiftEnum;
+@property (nonatomic, assign) BOOL isHeader;
 
 @end
 
@@ -42,6 +43,8 @@
 {
     self = [super init];
     if (self) {
+        _isHeader = NO;
+        
         NSString *trimmed = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
                              vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
         _isEnum = [trimmed vv_isEnum];
@@ -54,6 +57,19 @@
             _code = trimmed;
         }
     }
+    return self;
+}
+
+- (instancetype) initHeader
+{
+    self = [super init];
+    if (self) {
+        _isHeader = YES;
+        _isEnum = NO;
+        _isSwiftEnum = NO;
+        _code = nil;
+    }
+    
     return self;
 }
 
@@ -74,7 +90,9 @@
     
     VVBaseCommenter *commenter = nil;
     
-    if (self.isEnum) {    
+    if (self.isHeader) {
+        commenter = [[DXHeaderCommenter alloc] initWithIndentString:baseIndent codeString:nil];
+    } else if (self.isEnum) {
         commenter = [[VVEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if (self.isSwiftEnum) {
         commenter = [[VVSwiftEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
