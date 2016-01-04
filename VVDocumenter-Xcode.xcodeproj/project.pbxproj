@@ -70,6 +70,7 @@
 		D1C6124819891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */; };
 		D1C6124919891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */; };
 		D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
+		EB0F89881C3A128200FE7A94 /* DXHeaderCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEEC8B11C350CC9003DD98C /* DXHeaderCommenter.m */; };
 		EBEEC8B21C350CC9003DD98C /* DXHeaderCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEEC8B11C350CC9003DD98C /* DXHeaderCommenter.m */; };
 /* End PBXBuildFile section */
 
@@ -530,6 +531,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB0F89881C3A128200FE7A94 /* DXHeaderCommenter.m in Sources */,
 				C4052CFC1B3BB2C200ED0CF0 /* VVProject.m in Sources */,
 				C4052CFD1B3BB2C200ED0CF0 /* VVWorkspaceManager.m in Sources */,
 				4B06DF741B315E9D007D69BE /* VVSwiftExtensionCommenter.m in Sources */,

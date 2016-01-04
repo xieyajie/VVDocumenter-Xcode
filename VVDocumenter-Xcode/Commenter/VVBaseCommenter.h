@@ -46,6 +46,9 @@
 
 -(BOOL) shouldComment;
 
+-(NSString *)emptyLine;
+-(NSString *)prefixString;
+
 // Comment methods
 -(NSString *) startComment;
 -(NSString *) startCommentWithDescriptionTag:(NSString *)tag;
