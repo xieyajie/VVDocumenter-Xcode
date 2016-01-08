@@ -46,7 +46,6 @@
         
         NSString *indentString = useSpace ? @" " : @"\t";
         [result appendFormat:@"%@@%@%@<#%@ description#>\n", self.prefixString, name, indentString, arg.name];
-        
     }
     return result;
 }
@@ -54,7 +53,6 @@
 -(NSString *) document
 {
     [self argumentsForHeaderDoc];
-    //    NSString *string = @"/*!\n  @header <#filename#>\t\n  @abstract  <#Description#>\t\n  @author  <#author#>\t\n  @version  <#version number#>\t\n*/\n";
     
     return [super documentForC];
 }
