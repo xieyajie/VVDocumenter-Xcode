@@ -54,16 +54,16 @@
         BOOL useSpace = [[VVDocumenterSetting defaultSetting] useSpaces];
         NSString *indentString = useSpace ? @" " : @"\t";
         
-        for (int i = 0; i < [enumParts count]; i++) {
-            NSString *part = [enumParts objectAtIndex:i];
+        for (int i = 0; i < [enumArguments count]; i++) {
+            NSString *part = [enumArguments objectAtIndex:i];
             NSString *trimmedPart = [part stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
             if (trimmedPart.length == 0) {
                 continue;
             }
             
-            BOOL isLast = part == [enumParts lastObject] ? YES : NO;
-            if (!isLast) {
+            if (trimmedPart != [enumArguments lastObject]) {
                 trimmedPart = [trimmedPart stringByAppendingString:@","];
+                longestPartLength += 1;
             }
             
             if ([[VVDocumenterSetting defaultSetting] alignArgumentComments]) {
@@ -76,10 +76,7 @@
                 }
             }
             
-            trimmedPart = [trimmedPart stringByAppendingFormat:@"%@/*! <#Description#> */", indentString];
-            if (!isLast) {
-                trimmedPart = [trimmedPart stringByAppendingString:@"\n"];
-            }
+            trimmedPart = [trimmedPart stringByAppendingFormat:@"%@/*! <#Description#> */\n", indentString];
             
             finalString = [finalString stringByAppendingFormat:@"%@%@", indentString, trimmedPart];
         }

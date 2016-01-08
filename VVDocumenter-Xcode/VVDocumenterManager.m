@@ -160,7 +160,7 @@
                 }
                 
                 //We always write document until semicolon for enum. (Maybe struct later)
-                if ([resultToDocument.string vv_isObjCEnum]) {
+                if ([resultToDocument.string vv_isObjCEnum] || [resultToDocument.string vv_isCEnum]) {
                     resultToDocument = resultUntilSemiColon;
                     shouldReplace = YES;
                 }
@@ -172,6 +172,7 @@
                     inputCode = [resultToDocument.string vv_stringByConvertingToUniform];
                 }
                 
+                VVLog(@"input code:%@", inputCode);
                 VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:inputCode];
                 NSString *documentationString = [doc document];
                 
