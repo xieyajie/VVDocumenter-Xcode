@@ -64,7 +64,7 @@
 
 - (BOOL) vv_isCEnum
 {
-    return ![self vv_isObjCEnum] && ![self vv_isSwiftEnum] && [self vv_matchesPatternRegexPattern:@"^\\s*(typedef\\s+)?enum\\s+\\w*\\{"];
+    return ![self vv_isObjCEnum] && ![self vv_isSwiftEnum] && [self vv_matchesPatternRegexPattern:@"^\\s*(typedef\\s+)?enum\\s*\\w*\\{"];
 }
 
 -(BOOL) vv_isProperty

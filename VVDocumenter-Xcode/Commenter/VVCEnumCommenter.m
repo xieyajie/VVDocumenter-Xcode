@@ -24,7 +24,7 @@
     
     // Grab everything from the start of the line to the opening brace, which
     // may be on a different line.
-    NSString *enumDefinePattern = @"^\\s*(typedef\\s+)?enum\\s+\\w*\\{";
+    NSString *enumDefinePattern = @"^\\s*(typedef\\s+)?enum\\s*\\w*\\{";
     NSRegularExpression *enumDefineExpression = [NSRegularExpression regularExpressionWithPattern:enumDefinePattern options:0 error:nil];
     NSTextCheckingResult *enumDefineResult = [enumDefineExpression firstMatchInString:self.code options:0 range:NSMakeRange(0, self.code.length)];
     
@@ -49,6 +49,7 @@
             longestPartLength = trimmedPart.length > longestPartLength ? trimmedPart.length : longestPartLength;
         }
     }
+    longestPartLength += 1;
     
     if ([enumArguments count] > 0) {
         BOOL useSpace = [[VVDocumenterSetting defaultSetting] useSpaces];
@@ -61,10 +62,7 @@
                 continue;
             }
             
-            if (trimmedPart != [enumArguments lastObject]) {
-                trimmedPart = [trimmedPart stringByAppendingString:@","];
-                longestPartLength += 1;
-            }
+            trimmedPart = [trimmedPart stringByAppendingString:@","];
             
             if ([[VVDocumenterSetting defaultSetting] alignArgumentComments]) {
                 if (useSpace) {
