@@ -41,5 +41,6 @@
 #import "VVSwiftPropertyCommenter.h"
 #import "VVSwiftExtensionCommenter.h"
 #import "DXHeaderCommenter.h"
+#import "VVCEnumCommenter.h"
 
 #endif

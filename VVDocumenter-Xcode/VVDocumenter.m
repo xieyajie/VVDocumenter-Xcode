@@ -104,7 +104,9 @@
         commenter = [[VVObjCEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if (self.isSwiftEnum) {
         commenter = [[VVSwiftEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
-    } else if ([trimCode vv_isProperty]) {
+    } else if (self.isCEnum){
+        commenter = [[VVCEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+    }else if ([trimCode vv_isProperty]) {
         commenter = [[VVPropertyCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isCFunction]) {
         commenter = [[VVFunctionCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];

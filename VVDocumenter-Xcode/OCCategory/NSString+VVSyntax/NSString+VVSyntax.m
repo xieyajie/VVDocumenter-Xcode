@@ -100,7 +100,7 @@
 
 -(BOOL) vv_isSwiftEnum
 {
-    return ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?enum\\s*\\{\\s*case\\s+\\w+"];
+    return ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?enum\\s*\\w*\\s*\\{\\s*case\\s+\\w+"];
 }
 
 -(BOOL) vv_isSwiftProperty
