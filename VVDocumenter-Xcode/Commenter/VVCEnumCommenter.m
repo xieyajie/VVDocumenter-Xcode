@@ -8,6 +8,8 @@
 
 #import "VVCEnumCommenter.h"
 
+#import "VVDocumenterSetting.h"
+
 @implementation VVCEnumCommenter
 
 - (NSString *)document {
@@ -22,8 +24,7 @@
     
     // Grab everything from the start of the line to the opening brace, which
     // may be on a different line.
-    NSString *enumDefinePattern = @"^\\s*(\\w+\\s+)?NS_(ENUM|OPTIONS)[\\s\\S]*?\\{";
-    
+    NSString *enumDefinePattern = @"^\\s*(typedef\\s+)?enum\\s+\\w*\\{";
     NSRegularExpression *enumDefineExpression = [NSRegularExpression regularExpressionWithPattern:enumDefinePattern options:0 error:nil];
     NSTextCheckingResult *enumDefineResult = [enumDefineExpression firstMatchInString:self.code options:0 range:NSMakeRange(0, self.code.length)];
     
@@ -31,40 +32,61 @@
     finalString = [finalString substringToIndex:finalString.length - 1];
     finalString = [finalString stringByAppendingString:@" {\n"];
     
-    NSString *endPattern = @"\\}\\s*;";
+    NSString *endPattern = @"\\}\\s*\\w*\\s*;";
+    NSRegularExpression *endPatternExpression = [NSRegularExpression regularExpressionWithPattern:endPattern options:0 error:nil];
+    NSTextCheckingResult *endPatternResult = [endPatternExpression firstMatchInString:self.code options:0 range:NSMakeRange(0, self.code.length)];
+    NSString *endString = [self.code substringWithRange:[endPatternResult rangeAtIndex:0]];
+    
     NSString *enumPartsString = [[self.code vv_stringByReplacingRegexPattern:enumDefinePattern withString:@""]
                                  vv_stringByReplacingRegexPattern:endPattern        withString:@""];
     NSArray *enumParts = [enumPartsString componentsSeparatedByString:@","];
-    
+    NSMutableArray *enumArguments = [[NSMutableArray alloc] init];
+    NSUInteger longestPartLength = 0;
     for (NSString *part in enumParts) {
         NSString *trimmedPart = [part stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        //Only append when there is a enum define. (In case of the last comma, followed no define)
         if (trimmedPart.length != 0) {
-            NSString *temp = [NSString stringWithFormat:@"%@%@%@", [self startCommentWithDescriptionTag:@""],
-                              [self sinceComment],
-                              [self endComment]];
-            
-            if ([temp hasSuffix:@"\n"]) {
-                // comment has a newline suffix, so trimmedPart will go on
-                // the next line
-                temp = [temp stringByAppendingString:trimmedPart];
-            } else {
-                // comment does not have a newline suffix, so trimmedPart
-                // needs to be moved to the next line
-                temp = [temp stringByAppendingFormat:@"\n%@", trimmedPart];
-            }
-            
-            if (part != [enumParts lastObject]) {
-                temp = [temp stringByAppendingString:@",\n"];
-            } else {
-                // since trimmedPart was used there is no trailing newline
-                temp = [temp stringByAppendingString:@"\n"];
-            }
-            finalString = [finalString stringByAppendingString:temp];
+            [enumArguments addObject:trimmedPart];
+            longestPartLength = trimmedPart.length > longestPartLength ? trimmedPart.length : longestPartLength;
         }
     }
     
-    return [finalString stringByAppendingString:@"};"];
+    if ([enumArguments count] > 0) {
+        BOOL useSpace = [[VVDocumenterSetting defaultSetting] useSpaces];
+        NSString *indentString = useSpace ? @" " : @"\t";
+        
+        for (int i = 0; i < [enumParts count]; i++) {
+            NSString *part = [enumParts objectAtIndex:i];
+            NSString *trimmedPart = [part stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+            if (trimmedPart.length == 0) {
+                continue;
+            }
+            
+            BOOL isLast = part == [enumParts lastObject] ? YES : NO;
+            if (!isLast) {
+                trimmedPart = [trimmedPart stringByAppendingString:@","];
+            }
+            
+            if ([[VVDocumenterSetting defaultSetting] alignArgumentComments]) {
+                if (useSpace) {
+                    trimmedPart = [trimmedPart stringByPaddingToLength:longestPartLength withString:@" " startingAtIndex:0];
+                } else {
+                    NSInteger tabSpaceRateCount = [[VVDocumenterSetting defaultSetting] spaceCount];
+                    NSInteger neededTabCount = (longestPartLength + tabSpaceRateCount - trimmedPart.length) / tabSpaceRateCount - 1;
+                    trimmedPart = [trimmedPart stringByPaddingToLength:(trimmedPart.length + neededTabCount) withString:@"\t" startingAtIndex:0];
+                }
+            }
+            
+            trimmedPart = [trimmedPart stringByAppendingFormat:@"%@/*! <#Description#> */", indentString];
+            if (!isLast) {
+                trimmedPart = [trimmedPart stringByAppendingString:@"\n"];
+            }
+            
+            finalString = [finalString stringByAppendingFormat:@"%@%@", indentString, trimmedPart];
+        }
+    }
+    
+    
+    return [finalString stringByAppendingString:endString];
 }
 
 @end
