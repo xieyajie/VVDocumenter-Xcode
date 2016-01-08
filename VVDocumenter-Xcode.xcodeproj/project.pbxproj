@@ -71,6 +71,8 @@
 		D1C6124919891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */; };
 		D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
 		EB0F89881C3A128200FE7A94 /* DXHeaderCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEEC8B11C350CC9003DD98C /* DXHeaderCommenter.m */; };
+		EB746E981C3FA6F1007D8A27 /* VVCEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB746E971C3FA6F1007D8A27 /* VVCEnumCommenter.m */; };
+		EB746E991C3FA6F1007D8A27 /* VVCEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB746E971C3FA6F1007D8A27 /* VVCEnumCommenter.m */; };
 		EBEEC8B21C350CC9003DD98C /* DXHeaderCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EBEEC8B11C350CC9003DD98C /* DXHeaderCommenter.m */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +149,8 @@
 		D1C6124719891B3700FDB554 /* VVSwiftEnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVSwiftEnumCommenter.m; sourceTree = "<group>"; };
 		D1D66CA617A2AEF000E62F99 /* VVKeyboardEventSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVKeyboardEventSender.h; sourceTree = "<group>"; };
 		D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVKeyboardEventSender.m; sourceTree = "<group>"; };
+		EB746E961C3FA6F1007D8A27 /* VVCEnumCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVCEnumCommenter.h; sourceTree = "<group>"; };
+		EB746E971C3FA6F1007D8A27 /* VVCEnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVCEnumCommenter.m; sourceTree = "<group>"; };
 		EBEEC8B01C350CC9003DD98C /* DXHeaderCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXHeaderCommenter.h; sourceTree = "<group>"; };
 		EBEEC8B11C350CC9003DD98C /* DXHeaderCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXHeaderCommenter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -315,6 +319,8 @@
 				4B50A26F1B315CF3008A4400 /* VVSwiftExtensionCommenter.m */,
 				EBEEC8B01C350CC9003DD98C /* DXHeaderCommenter.h */,
 				EBEEC8B11C350CC9003DD98C /* DXHeaderCommenter.m */,
+				EB746E961C3FA6F1007D8A27 /* VVCEnumCommenter.h */,
+				EB746E971C3FA6F1007D8A27 /* VVCEnumCommenter.m */,
 			);
 			path = Commenter;
 			sourceTree = "<group>";
@@ -520,6 +526,7 @@
 				D1C6124819891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */,
 				D11C542D17999D9000D3DE38 /* VVArgument.m in Sources */,
 				D1D66CA817A2AEF000E62F99 /* VVKeyboardEventSender.m in Sources */,
+				EB746E981C3FA6F1007D8A27 /* VVCEnumCommenter.m in Sources */,
 				D173763A198A4CF700FE2355 /* VVTextResult.m in Sources */,
 				D124614717AC16820095F9D6 /* VVDocumenterSetting.m in Sources */,
 				C4052CFB1B3BB10700ED0CF0 /* VVWorkspaceManager.m in Sources */,
@@ -549,6 +556,7 @@
 				D14110A81988C12000A7083F /* VVArgument.m in Sources */,
 				D1C6124919891B3700FDB554 /* VVSwiftEnumCommenter.m in Sources */,
 				D14110A91988C12000A7083F /* VVBaseCommenter.m in Sources */,
+				EB746E991C3FA6F1007D8A27 /* VVCEnumCommenter.m in Sources */,
 				D14110AA1988C12000A7083F /* VVPropertyCommenter.m in Sources */,
 				D14110AB1988C12000A7083F /* VVMethodCommenter.m in Sources */,
 				D14110AC1988C12000A7083F /* VVFunctionCommenter.m in Sources */,

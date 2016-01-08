@@ -31,7 +31,8 @@
 @interface VVDocumenter()
 
 @property (nonatomic, copy) NSString *code;
-@property (nonatomic, assign) BOOL isEnum;
+@property (nonatomic, assign) BOOL isCEnum;
+@property (nonatomic, assign) BOOL isObjCEnum;
 @property (nonatomic, assign) BOOL isSwiftEnum;
 @property (nonatomic, assign) BOOL isHeader;
 
@@ -47,9 +48,15 @@
         
         NSString *trimmed = [[code vv_stringByReplacingRegexPattern:@"\\s*(\\(.*\?\\))\\s*" withString:@"$1"]
                              vv_stringByReplacingRegexPattern:@"\\s*\n\\s*"           withString:@" "];
-        _isEnum = [trimmed vv_isEnum];
         _isSwiftEnum = [trimmed vv_isSwiftEnum];
-        if (_isEnum || _isSwiftEnum) {
+        if (!_isSwiftEnum) {
+            _isObjCEnum = [trimmed vv_isObjCEnum];
+            if (!_isObjCEnum) {
+                _isCEnum = [trimmed vv_isCEnum];
+            }
+        }
+        
+        if (_isObjCEnum || _isSwiftEnum) {
             _code = code;
         } else {
             //Trim the space around the braces
@@ -65,7 +72,8 @@
     self = [super init];
     if (self) {
         _isHeader = YES;
-        _isEnum = NO;
+        _isCEnum = NO;
+        _isObjCEnum = NO;
         _isSwiftEnum = NO;
         _code = nil;
     }
@@ -92,7 +100,7 @@
     
     if (self.isHeader) {
         commenter = [[DXHeaderCommenter alloc] initWithIndentString:baseIndent codeString:nil];
-    } else if (self.isEnum) {
+    } else if (self.isObjCEnum) {
         commenter = [[VVEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if (self.isSwiftEnum) {
         commenter = [[VVSwiftEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];

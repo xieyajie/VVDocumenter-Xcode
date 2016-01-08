@@ -31,10 +31,11 @@
 -(NSString *) vv_stringByTrimEndSpaces;
 
 -(BOOL) vv_isObjCMethod;
+-(BOOL) vv_isObjCEnum;
 -(BOOL) vv_isProperty;
 -(BOOL) vv_isCFunction;
+-(BOOL) vv_isCEnum;
 -(BOOL) vv_isMacro;
--(BOOL) vv_isEnum;
 -(BOOL) vv_isStruct;
 -(BOOL) vv_isUnion;
 -(BOOL) vv_isComplieKeyword;

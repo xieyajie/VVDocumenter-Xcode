@@ -128,7 +128,7 @@
     for (int i = 0; i < (int)[self.inputs count]; i++) {
         for (int j = 0; j < [self.inputs[i] count]; j++) {
             NSString *result = self.corrects[i][j];
-            XCTAssertTrue([result vv_isEnum] == [boolResult[i] boolValue], @"%@ should %@ be a enum", result, [boolResult[i] boolValue] ? @"" : @"not");
+            XCTAssertTrue([result vv_isObjCEnum] == [boolResult[i] boolValue], @"%@ should %@ be a enum", result, [boolResult[i] boolValue] ? @"" : @"not");
         }
     }
 }

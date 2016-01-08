@@ -44,9 +44,14 @@
     return [self vv_matchesPatternRegexPattern:@"^\\s*[+-]"];
 }
 
+-(BOOL) vv_isObjCEnum
+{
+    return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s+)?NS_(ENUM|OPTIONS)\\b"];
+}
+
 -(BOOL) vv_isCFunction
 {
-    return ![self vv_isEnum] &&
+    return ![self vv_isObjCEnum] &&
            ![self vv_isMacro] &&
            ![self vv_isObjCMethod] &&
            ![self vv_isProperty] &&
@@ -55,6 +60,12 @@
            ![self vv_isSwiftEnum] &&
            ![self vv_isSwiftProperty] &&
            [self vv_matchesPatternRegexPattern:@".+\\s+.+\\("];
+}
+
+- (BOOL) vv_isCEnum
+{
+    return ![self vv_isObjCEnum] && ![self vv_isSwiftEnum] && [self vv_matchesPatternRegexPattern:@"^\\s*(typedef\\s+)?enum\\s+.*\\{.*\\}\\s*.*\\s*;$"];
+//    @"^\\s*(.*\\s+)?enum\\s+"
 }
 
 -(BOOL) vv_isProperty
@@ -70,11 +81,6 @@
 -(BOOL) vv_isStruct
 {
     return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s)?struct.*\\{"];
-}
-
--(BOOL) vv_isEnum
-{
-    return [self vv_matchesPatternRegexPattern:@"^\\s*(\\w+\\s+)?NS_(ENUM|OPTIONS)\\b"];
 }
 
 -(BOOL) vv_isUnion
@@ -94,7 +100,7 @@
 
 -(BOOL) vv_isSwiftEnum
 {
-    return ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?enum\\s+"];
+    return ![self vv_isSwiftProperty] && [self vv_matchesPatternRegexPattern:@"^\\s*(.*\\s+)?enum\\s*\\{\\s*case\\s+\\w+"];
 }
 
 -(BOOL) vv_isSwiftProperty

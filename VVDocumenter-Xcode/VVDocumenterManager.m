@@ -160,7 +160,7 @@
                 }
                 
                 //We always write document until semicolon for enum. (Maybe struct later)
-                if ([resultToDocument.string vv_isEnum]) {
+                if ([resultToDocument.string vv_isObjCEnum]) {
                     resultToDocument = resultUntilSemiColon;
                     shouldReplace = YES;
                 }
