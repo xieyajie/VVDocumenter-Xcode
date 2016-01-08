@@ -101,6 +101,7 @@
                 VVDocumenter *doc = [[VVDocumenter alloc] initHeader];
                 NSString *documentationString = [doc document];
                 textView.string = [textView.string stringByReplacingCharactersInRange:NSMakeRange(0, location) withString:documentationString];
+                textView.selectedRange = NSMakeRange(documentationString.length, 0);
                 
                 return;
             }
@@ -171,16 +172,8 @@
                     inputCode = [resultToDocument.string vv_stringByConvertingToUniform];
                 }
                 
-                VVDocumenter *doc = nil;
-                NSString *documentationString = nil;
-                if (index == 0) {
-                    doc = [[VVDocumenter alloc] initHeader];
-                    documentationString = [doc document];
-                }
-                else{
-                    doc = [[VVDocumenter alloc] initWithCode:inputCode];
-                    documentationString = [doc document];
-                }
+                VVDocumenter *doc = [[VVDocumenter alloc] initWithCode:inputCode];
+                NSString *documentationString = [doc document];
                 
                 if (!documentationString) {
                     //Leave the user's input there.
