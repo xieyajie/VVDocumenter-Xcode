@@ -33,7 +33,7 @@
 		D14110AD1988C12000A7083F /* VVSwiftFunctionCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D13EDDD81987F34C0029A555 /* VVSwiftFunctionCommenter.m */; };
 		D14110AE1988C12000A7083F /* VVMacroCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */; };
 		D14110AF1988C12000A7083F /* VVStructCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE21796E0C9006719AA /* VVStructCommenter.m */; };
-		D14110B01988C12000A7083F /* VVEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */; };
+		D14110B01988C12000A7083F /* VVObjCEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE51796E0D0006719AA /* VVObjCEnumCommenter.m */; };
 		D14110B11988C12000A7083F /* VVVariableCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */; };
 		D14110B21988C12F00A7083F /* VVKeyboardEventSender.m in Sources */ = {isa = PBXBuildFile; fileRef = D1D66CA717A2AEF000E62F99 /* VVKeyboardEventSender.m */; };
 		D14110B31988C12F00A7083F /* NSString+VVSyntax.m in Sources */ = {isa = PBXBuildFile; fileRef = D1C462F417999CEC00EB7B23 /* NSString+VVSyntax.m */; };
@@ -51,7 +51,7 @@
 		D16AFCDD1796E0B9006719AA /* VVFunctionCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDC1796E0B9006719AA /* VVFunctionCommenter.m */; };
 		D16AFCE01796E0C0006719AA /* VVMacroCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */; };
 		D16AFCE31796E0C9006719AA /* VVStructCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE21796E0C9006719AA /* VVStructCommenter.m */; };
-		D16AFCE61796E0D0006719AA /* VVEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */; };
+		D16AFCE61796E0D0006719AA /* VVObjCEnumCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE51796E0D0006719AA /* VVObjCEnumCommenter.m */; };
 		D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */ = {isa = PBXBuildFile; fileRef = D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */; };
 		D1737637198A4C8A00FE2355 /* NSString+VVTextGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = D1737636198A4C8A00FE2355 /* NSString+VVTextGetter.m */; };
 		D173763A198A4CF700FE2355 /* VVTextResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D1737639198A4CF700FE2355 /* VVTextResult.m */; };
@@ -121,8 +121,8 @@
 		D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVMacroCommenter.m; sourceTree = "<group>"; };
 		D16AFCE11796E0C9006719AA /* VVStructCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVStructCommenter.h; sourceTree = "<group>"; };
 		D16AFCE21796E0C9006719AA /* VVStructCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVStructCommenter.m; sourceTree = "<group>"; };
-		D16AFCE41796E0D0006719AA /* VVEnumCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVEnumCommenter.h; sourceTree = "<group>"; };
-		D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVEnumCommenter.m; sourceTree = "<group>"; };
+		D16AFCE41796E0D0006719AA /* VVObjCEnumCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVObjCEnumCommenter.h; sourceTree = "<group>"; };
+		D16AFCE51796E0D0006719AA /* VVObjCEnumCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVObjCEnumCommenter.m; sourceTree = "<group>"; };
 		D16AFCE71796E0D6006719AA /* VVVariableCommenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVVariableCommenter.h; sourceTree = "<group>"; };
 		D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVVariableCommenter.m; sourceTree = "<group>"; };
 		D1737635198A4C8A00FE2355 /* NSString+VVTextGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VVTextGetter.h"; sourceTree = "<group>"; };
@@ -311,8 +311,8 @@
 				D16AFCDF1796E0C0006719AA /* VVMacroCommenter.m */,
 				D16AFCE11796E0C9006719AA /* VVStructCommenter.h */,
 				D16AFCE21796E0C9006719AA /* VVStructCommenter.m */,
-				D16AFCE41796E0D0006719AA /* VVEnumCommenter.h */,
-				D16AFCE51796E0D0006719AA /* VVEnumCommenter.m */,
+				D16AFCE41796E0D0006719AA /* VVObjCEnumCommenter.h */,
+				D16AFCE51796E0D0006719AA /* VVObjCEnumCommenter.m */,
 				D16AFCE71796E0D6006719AA /* VVVariableCommenter.h */,
 				D16AFCE81796E0D6006719AA /* VVVariableCommenter.m */,
 				4B50A26E1B315CF3008A4400 /* VVSwiftExtensionCommenter.h */,
@@ -517,7 +517,7 @@
 				D13EDDD91987F34C0029A555 /* VVSwiftFunctionCommenter.m in Sources */,
 				D16AFCE01796E0C0006719AA /* VVMacroCommenter.m in Sources */,
 				D16AFCE31796E0C9006719AA /* VVStructCommenter.m in Sources */,
-				D16AFCE61796E0D0006719AA /* VVEnumCommenter.m in Sources */,
+				D16AFCE61796E0D0006719AA /* VVObjCEnumCommenter.m in Sources */,
 				D16AFCE91796E0D6006719AA /* VVVariableCommenter.m in Sources */,
 				D1C462F517999CEC00EB7B23 /* NSString+VVSyntax.m in Sources */,
 				D1737637198A4C8A00FE2355 /* NSString+VVTextGetter.m in Sources */,
@@ -563,7 +563,7 @@
 				D14110AD1988C12000A7083F /* VVSwiftFunctionCommenter.m in Sources */,
 				D14110AE1988C12000A7083F /* VVMacroCommenter.m in Sources */,
 				D14110AF1988C12000A7083F /* VVStructCommenter.m in Sources */,
-				D14110B01988C12000A7083F /* VVEnumCommenter.m in Sources */,
+				D14110B01988C12000A7083F /* VVObjCEnumCommenter.m in Sources */,
 				D14110B11988C12000A7083F /* VVVariableCommenter.m in Sources */,
 				D14110A71988C08700A7083F /* VVDocumenterTests.m in Sources */,
 				D14110A61988C07E00A7083F /* VVTestHelper.m in Sources */,

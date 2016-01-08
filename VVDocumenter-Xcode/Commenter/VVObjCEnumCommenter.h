@@ -1,5 +1,5 @@
 //
-//  VVEnumCommenter.h
+//  VVObjCEnumCommenter.h
 //  VVDocumenter-Xcode
 //
 //  Created by 王 巍 on 13-7-17.
@@ -26,6 +26,6 @@
 
 #import "VVBaseCommenter.h"
 
-@interface VVEnumCommenter : VVBaseCommenter
+@interface VVObjCEnumCommenter : VVBaseCommenter
 
 @end

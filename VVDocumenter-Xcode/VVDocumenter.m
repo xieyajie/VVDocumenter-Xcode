@@ -101,7 +101,7 @@
     if (self.isHeader) {
         commenter = [[DXHeaderCommenter alloc] initWithIndentString:baseIndent codeString:nil];
     } else if (self.isObjCEnum) {
-        commenter = [[VVEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
+        commenter = [[VVObjCEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if (self.isSwiftEnum) {
         commenter = [[VVSwiftEnumCommenter alloc] initWithIndentString:baseIndent codeString:trimCode];
     } else if ([trimCode vv_isProperty]) {

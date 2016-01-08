@@ -32,7 +32,7 @@
 #import "VVPropertyCommenter.h"
 #import "VVFunctionCommenter.h"
 #import "VVMacroCommenter.h"
-#import "VVEnumCommenter.h"
+#import "VVObjCEnumCommenter.h"
 #import "VVStructCommenter.h"
 #import "VVVariableCommenter.h"
 #import "VVArgument.h"

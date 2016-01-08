@@ -1,5 +1,5 @@
 //
-//  VVEnumCommenter.m
+//  VVObjCEnumCommenter.m
 //  VVDocumenter-Xcode
 //
 //  Created by 王 巍 on 13-7-17.
@@ -24,9 +24,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "VVEnumCommenter.h"
+#import "VVObjCEnumCommenter.h"
 
-@implementation VVEnumCommenter
+@implementation VVObjCEnumCommenter
 
 - (NSString *)document {
     //Regular comment documentation
