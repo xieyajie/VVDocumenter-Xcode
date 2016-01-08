@@ -17,7 +17,12 @@
 
 -(NSString *) startComment
 {
-    return @"/*!\t";
+    if ([[VVDocumenterSetting defaultSetting] useHeaderDoc]) {
+        return @"/*!\t";
+    }
+    else{
+        return @"/**\t";
+    }
 }
 
 -(NSString *) argumentsComment

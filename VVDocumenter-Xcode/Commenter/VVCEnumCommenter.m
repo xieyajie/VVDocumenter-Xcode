@@ -54,6 +54,7 @@
     if ([enumArguments count] > 0) {
         BOOL useSpace = [[VVDocumenterSetting defaultSetting] useSpaces];
         NSString *indentString = useSpace ? @" " : @"\t";
+        NSString *startString = [[VVDocumenterSetting defaultSetting] useHeaderDoc] ? @"/*!" : @"/**";
         
         for (int i = 0; i < [enumArguments count]; i++) {
             NSString *part = [enumArguments objectAtIndex:i];
@@ -74,7 +75,7 @@
                 }
             }
             
-            trimmedPart = [trimmedPart stringByAppendingFormat:@"%@/*! <#Description#> */\n", indentString];
+            trimmedPart = [trimmedPart stringByAppendingFormat:@"%@%@ <#Description#> */\n", indentString, startString];
             
             finalString = [finalString stringByAppendingFormat:@"%@%@", indentString, trimmedPart];
         }

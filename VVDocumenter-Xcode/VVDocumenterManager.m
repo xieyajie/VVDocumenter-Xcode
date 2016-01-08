@@ -94,10 +94,11 @@
 
     if ([[noti object] isKindOfClass:[NSTextView class]]) {
         NSTextView *textView = (NSTextView *)[noti object];
+        NSString *triggerString = [[VVDocumenterSetting defaultSetting] triggerString];
         NSInteger location = [textView vv_currentCurseLocation];
         if (location == 3) {
             NSString *str = [textView.string substringToIndex:3];
-            if ([str isEqualToString:@"///"]) {
+            if ([str isEqualToString:triggerString]) {
                 VVDocumenter *doc = [[VVDocumenter alloc] initHeader];
                 NSString *documentationString = [doc document];
                 textView.string = [textView.string stringByReplacingCharactersInRange:NSMakeRange(0, location) withString:documentationString];
@@ -112,7 +113,6 @@
             
             //Check if there is a "//" already typed in. We do this to solve the undo issue
             //Otherwise when you press Cmd+Z, "///" will be recognized and trigger the doc inserting, so you can not perform an undo.
-            NSString *triggerString = [[VVDocumenterSetting defaultSetting] triggerString];
             
             if (triggerString.length > 1) {
                 NSString *preTypeString = [triggerString substringToIndex:triggerString.length - 2];
